@@ -3,10 +3,12 @@ import ProductsPage from "./Pages/ProductsPage"
 import DetailsPage from "./Pages/DetailsPage"
 import CheckoutPage from "./Pages/CheckoutPage"
 import NotFound from "./Pages/NotFound"
+import ProductProvider from "./Context/ProductContext"
 
 function App() {
   return (
     <>
+     <ProductProvider>
       <Routes>
         <Route index element={<Navigate to="/products" replace />} />
         <Route path="/products" element={<ProductsPage />} />
@@ -14,6 +16,7 @@ function App() {
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
+     </ProductProvider>
     </>
   )
 }
