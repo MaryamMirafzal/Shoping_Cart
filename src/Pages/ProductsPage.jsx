@@ -4,22 +4,41 @@ import Loader from "../Components/Loader";
 import { useProducts } from "../Context/ProductContext"
 
 import styles from "./ProductsPage.module.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaListUl } from "react-icons/fa";
+import { filterProducts, searchProducts } from "../helper/helper";
 
 function ProductsPage() {
     const products = useProducts()
-    console.log(products);
+    const [ displayed , setDisplayed ] = useState([])
     const [ search , setSearch ] = useState("")
+    const [ query , setQuery ] = useState({})
+
+    useEffect(()=>{
+        setDisplayed(products)
+    },[products])
+
+    useEffect(()=>{
+      console.log(query);
+      let finalProducts = searchProducts(products , query.search)
+      finalProducts = filterProducts(finalProducts , query.category)
+      setDisplayed(finalProducts)
+    },[query])
+
+    
+ 
+
     const searchHandler = ()=>{
-        console.log('searching');
+        setQuery((query)=>({...query, search}))
     }
+
     const categoryHandler = (event)=>{
       const { tagName } = event.target;
       const category = event.target.innerText.toLowerCase()
       if ( tagName !== "LI") return;
-      console.log(category);
+      setQuery((query)=>({...query , category}))
     }
+
   return (
     <>
       <div>
@@ -29,10 +48,10 @@ function ProductsPage() {
       </div>
 
       <div className={styles.container}>
-        {!products.length && <Loader />}
+        {!displayed.length && <Loader />}
         <div className={styles.products}>
             {
-                products.map((p)=> (<Card key={p.id} data={p}/>))
+                displayed.map((p)=> (<Card key={p.id} data={p}/>))
             }
         </div>
         <div>
@@ -41,7 +60,7 @@ function ProductsPage() {
             </div>
             <ul onClick={categoryHandler}>
                 <li>All</li>
-                <li>Electroincs</li>
+                <li>Electronics</li>
                 <li>Jewelery</li>
                 <li>Men's Clothing</li>
                 <li>Women's Clothing</li>
