@@ -12,5 +12,16 @@ const filterProducts = (products, category)=>{
     const filteredProducts = products.filter(p => p.category == category)
     return filteredProducts
 }
+const createQueryObject = (currentQuery , newQuery ) =>{
+    if(newQuery.category == "all"){
+        const { category , ...rest } = currentQuery; // it will be delete category
+        return rest
+    }
+    if(newQuery.search == ""){
+        const { search , ...rest} = currentQuery; // it will be delete search
+        return rest
+    }
+    return { ...currentQuery,...newQuery}
+}
 
-export  {shortenName , searchProducts , filterProducts}
+export  {shortenName , searchProducts , filterProducts , createQueryObject}
