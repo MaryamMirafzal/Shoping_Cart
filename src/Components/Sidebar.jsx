@@ -3,6 +3,8 @@ import { FaListUl } from "react-icons/fa";
 
 import styles from "./Sidebar.module.css"
 
+import { categories } from "../Constants/list";
+
 function Sidebar({setQuery , query}) {
     const categoryHandler = (event)=>{
       const { tagName } = event.target;
@@ -16,11 +18,9 @@ function Sidebar({setQuery , query}) {
           <FaListUl /><p>Categories</p>
         </div>
         <ul onClick={categoryHandler}>
-            <li>All</li>
-            <li className={query.category =="electronics" ? styles.selected : null}>Electronics</li>
-            <li className={query.category =="jewelery" ? styles.selected : null}>Jewelery</li>
-            <li className={query.category =="men's clothing" ? styles.selected : null}>Men's Clothing</li>
-            <li className={query.category =="women's clothing" ? styles.selected : null}>Women's Clothing</li>
+            {categories.map((item) =>(
+                <li key={item.id} className={item.type.toLowerCase() == query.category ? styles.selected : null} >{item.type}</li>
+            ))}
         </ul>
     </div>
   )
