@@ -4,10 +4,12 @@ import DetailsPage from "./Pages/DetailsPage"
 import CheckoutPage from "./Pages/CheckoutPage"
 import NotFound from "./Pages/NotFound"
 import ProductProvider from "./Context/ProductContext"
+import CartProvider from "./Context/CartContext"
 
 function App() {
   return (
     <>
+    <CartProvider>
      <ProductProvider>
       <Routes>
         <Route index element={<Navigate to="/products" replace />} />
@@ -17,6 +19,7 @@ function App() {
         <Route path="/*" element={<NotFound />} />
       </Routes>
      </ProductProvider>
+     </CartProvider>
     </>
   )
 }

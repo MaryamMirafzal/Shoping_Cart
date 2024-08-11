@@ -3,9 +3,15 @@ import { Link } from "react-router-dom";
 import { shortenName} from "../helper/helper"
 
 import styles from "./Card.module.css"
+import { useCart } from "../Context/CartContext";
 
 function Card({data}) {
-    const { id , image , title , price } = data
+    const { id , image , title , price } = data;
+
+    const [state , dispatch] = useCart()
+    const clickHandler = ()=>{
+      dispatch({type:"add", payload:data })
+    }
   return (
     <div className={styles.card}>
         <img src={image} alt={title} style={{width:"150px"}} />
@@ -14,7 +20,7 @@ function Card({data}) {
         <div className={styles.actions}>
             <Link to={`/products/${id}`}><TbListDetails /></Link>
             <div>
-            <button><TbShoppingBagCheck /></button>
+            <button onClick={clickHandler}><TbShoppingBagCheck /></button>
             </div>
         </div>
     </div>
