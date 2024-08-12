@@ -1,3 +1,4 @@
+
 const shortenName = (text)=>{
     return text.split(" ").slice(0,3).join(" ");
 }
@@ -24,4 +25,10 @@ const createQueryObject = (currentQuery , newQuery ) =>{
     return { ...currentQuery,...newQuery}
 }
 
-export  {shortenName , searchProducts , filterProducts , createQueryObject}
+const sumProducts = (products) =>{
+    const itemsCounter = products.reduce((counter, product)=> counter + product.quantity, 0 )
+    const total = products.reduce((total, product )=> total + product.price * product.quantity , 0).toFixed(2)
+    return { itemsCounter , total}
+}
+
+export  {shortenName , searchProducts , filterProducts , createQueryObject, sumProducts}

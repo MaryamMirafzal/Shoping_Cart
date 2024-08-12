@@ -6,11 +6,13 @@ import styles from "./Card.module.css"
 import { useCart } from "../Context/CartContext";
 
 function Card({data}) {
+    // eslint-disable-next-line react/prop-types
     const { id , image , title , price } = data;
 
     const [state , dispatch] = useCart()
+    console.log(state);
     const clickHandler = ()=>{
-      dispatch({type:"add", payload:data })
+      dispatch({type:"Add_ITEM", payload:data })
     }
   return (
     <div className={styles.card}>
