@@ -1,3 +1,4 @@
+import { useContext } from "react";
 
 const shortenName = (text)=>{
     return text.split(" ").slice(0,3).join(" ");
@@ -38,5 +39,6 @@ const productQuantity = (state, id )=>{
         return state.selectedItems[index].quantity
     }
 }
+
 
 export  {shortenName , searchProducts , filterProducts , createQueryObject, sumProducts , productQuantity}

@@ -19,7 +19,9 @@ function Layout({children}) {
             </Link>
         </header>
         {children}
-        <footer className={styles.header}></footer>
+        <footer className={styles.header}>
+            <p>Developed by Maryam with ❤</p>
+        </footer>
     </div>
   )
 }
