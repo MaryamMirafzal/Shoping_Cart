@@ -25,7 +25,7 @@ function DetailsPage() {
           <IoMdPricetag />
           {productDetails.price} $
         </span>
-        <Link to="./products">
+        <Link to="/products">
         <FaArrowLeft />
         <span>Back to shop</span>
         </Link>

@@ -10,6 +10,7 @@ function ProductProvider({children}) {
         const fetchProducts = async ()=>{
             try {
                 setProducts(await api.get("/products"))
+                console.log(products);
             } catch (error) {
                 console.log(error.message);
             }

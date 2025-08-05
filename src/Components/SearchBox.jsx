@@ -12,7 +12,7 @@ function SearchBox({search , setSearch, setQuery}) {
     <div className={styles.Search}>
        <input type="text" placeholder="Search..." value={search} onChange={e => setSearch(e.target.value.toLowerCase().trim())} />
        <button onClick={searchHandler}><MagnifyingGlass
-        width="40px" height="40px" margineTop="20px"/></button>
+        width="40px" height="40px" margineTop="20px" color="#003995"/></button>
     </div>
     
   )

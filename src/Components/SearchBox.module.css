@@ -3,12 +3,12 @@
     
 }
 .Search input {
-    border: 4px dashed #fe5d42;
+    border: 4px dashed #003995;
     padding: 10px;
     height: 50px;
     width: 270px;
     font-size: 0.9rem;
-    color: #fe5d42;
+    color: #003995;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;

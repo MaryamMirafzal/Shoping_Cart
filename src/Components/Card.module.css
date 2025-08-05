@@ -22,7 +22,7 @@
     background-color: #fff;
 }
 .card h3{
-    color: #fe5d42;
+    color: #003995;
     font-size: 1.1rem;
 }
 .card p {
@@ -40,7 +40,7 @@
 .actions a {
     font-size: 1.5rem;
     height: 25px;
-    color: #fe5d42;
+    color: #003995;
     cursor: pointer;
 }
 .actions div {
@@ -62,7 +62,7 @@
     margin: 0 10px;
 }
 .actions div button {
-    background-color: #fe5d42;
+    background-color: #003995;
     color: #fff;
     border: none;
     font-size: 1.7rem;
